@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+float calcularINSS(float salarioBruto) {
+    if (salarioBruto <= 1212.00) {
+        return salarioBruto * 0.075;
+    } else if (salarioBruto <= 2427.35) {
+        return salarioBruto * 0.09;
+    } else if (salarioBruto <= 3641.03) {
+        return salarioBruto * 0.12;
+    } else {
+        return salarioBruto * 0.14;
+    }
+}
+
+float calcularIR(float salarioBruto) {
+    if (salarioBruto <= 1903.98) {
+        return 0;
+    } else if (salarioBruto <= 2826.65) {
+        return salarioBruto * 0.075 - 142.80;
+    } else if (salarioBruto <= 3751.05) {
+        return salarioBruto * 0.15 - 354.80;
+    } else if (salarioBruto <= 4664.68) {
+        return salarioBruto * 0.225 - 636.13;
+    } else {
+        return salarioBruto * 0.275 - 869.36;
+    }
+}
+
+float calcularVT(float salarioBruto) {
+    float vt = salarioBruto * 0.06;
+    return (vt > 150.00) ? 150.00 : vt;
+}
+
+int main() {
+    string login, senha;
+    string loginCorreto = "usuario";
+    string senhaCorreta = "senha123";
+
+    cout << "Digite seu login: ";
+    cin >> login;
+    cout << "Digite sua senha: ";
+    cin >> senha;
+
+    if (login == loginCorreto && senha == senhaCorreta) {
+    string nome;
+    float salarioBruto;
+
+   cout << "Login realizado com sucesso!" << endl;
+   cout << "Digite seu nome: ";
+   cin >> nome;
+   cout << "Digite seu salario bruto: ";
+   cin >> salarioBruto;
+
+    float inss = calcularINSS(salarioBruto);
+    float ir = calcularIR(salarioBruto);
+    float vt = calcularVT(salarioBruto);
+    float salarioLiquido = salarioBruto - inss - ir - vt;
+
+    cout << "Nome: " << nome << endl;
+    cout << "Salario Bruto: R$ " << salarioBruto << endl;
+    cout << "Desconto INSS: R$ " << inss << endl;
+    cout << "Desconto IR: R$ " << ir << endl;
+    cout << "Desconto VT: R$ " << vt << endl;
+    cout << "Salario Liquido: R$ " << salarioLiquido << endl;
+    } else {
+    cout << "Login ou senha incorretos!" << endl;
+    }
+    }
+
+    return 0;
+}
