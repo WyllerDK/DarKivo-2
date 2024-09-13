@@ -1,0 +1,41 @@
+include <iostream>
+#include <cmath>
+#include <string>
+
+using namespace std;
+
+double calcularMontante(double principal, double taxa, int tempo) {
+    return principal * pow((1 + taxa), tempo);
+}
+
+int main() {
+    string nome;
+    double investimentoInicial;
+    int tempo;
+    char opcao;
+
+    do {
+        cout << "Digite seu nome: ";
+        cin >> nome;
+        cout << "Digite o investimento inicial: ";
+        cin >> investimentoInicial;
+        cout << "Digite o tempo de investimento (em meses): ";
+        cin >> tempo;
+
+        double taxa = 0.02; // 2% ao mês
+        double montante = calcularMontante(investimentoInicial, taxa, tempo);
+        double juros = montante - investimentoInicial;
+
+        cout << "Nome: " << nome << endl;
+        cout << "Investimento Inicial: R$ " << investimentoInicial << endl;
+        cout << "Montante: R$ " << montante << endl;
+        cout << "Juros: R$ " << juros << endl;
+
+        cout << "Deseja fazer uma nova simulação? (s/n): ";
+        cin >> opcao;
+
+    } while (opcao == 's' || opcao == 'S');
+
+    return 0;
+}
+
