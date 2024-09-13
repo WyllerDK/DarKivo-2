@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+string nome, r;
+int idade;
+
+comeco:
+cout << "Deseja inserir os dados do eleitor? sim / não: " << endl;
+cin >> r;
+
+if (r == "sim"){
+
+cout << "Digite seu nome: " << endl;
+cin >> nome;
+cout << "Digite sua idade: " << endl;
+cin >> idade;
+cout << "Nome do eleitor: " << nome << endl;
+cout << "Idade do eleitor: " << idade << endl;
+
+
+  if (idade <= 17 and idade >= 16){
+ cout << "Voto facultativo" << endl;
+ }
+ 
+ if (idade >= 18){
+ cout << "Voto obrigatorio." << endl;
+ }
+ 
+  if (idade <= 15){
+ cout << "Incapaz de votar" << endl;
+ }
+}
+
+else {
+
